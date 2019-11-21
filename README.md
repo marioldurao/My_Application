@@ -8,6 +8,7 @@ Points to improve:
 4. After grabing/touch the letter, play the letter sound
 5. Add a icon to the app
 6. Replace dino image by B. Draws
+7. Improve PlaySound() function to receive "String" or resource to play; 
 
 
 PS: When have the time, do this read properly:
