@@ -7,10 +7,14 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.DragEvent;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnLongClickListener;
+import android.view.ViewConfiguration;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import static java.lang.Boolean.TRUE;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,13 +40,13 @@ public class MainActivity extends AppCompatActivity {
         txt_o_target = (TextView) findViewById(R.id.txt_o_target);
 
         // listener to start the drag
-        txt_a.setOnLongClickListener(longClickListener);
-        txt_e.setOnLongClickListener(longClickListener);
-        txt_i.setOnLongClickListener(longClickListener);
-        txt_o.setOnLongClickListener(longClickListener);
+        txt_a.setOnTouchListener(myTouch);
+        txt_e.setOnTouchListener(myTouch);
+        txt_i.setOnTouchListener(myTouch);
+        txt_o.setOnTouchListener(myTouch);
 
         //listener to play all dino name
-        dino_view = (ImageView) findViewById(R.id.dino_view);
+        dino_view = findViewById(R.id.dino_view);
         dino_view.setBackgroundResource(R.drawable.velociraptor);
         dino_view.setOnClickListener(clickListener);
 
@@ -63,17 +67,21 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-    OnLongClickListener longClickListener = new OnLongClickListener() {
-        @Override
-        public boolean onLongClick(View v) {
 
-            ClipData clipData = ClipData.newPlainText("","");
-            View.DragShadowBuilder dragShadowBuilder = new View.DragShadowBuilder(v);
-            v.startDrag(clipData, dragShadowBuilder, v, 0);
-            return true;
 
-        }
-    };
+   View.OnTouchListener myTouch = new View.OnTouchListener(){
+
+
+       @Override
+       public boolean onTouch(View v, MotionEvent event) {
+
+           ClipData clipData = ClipData.newPlainText("","");
+           View.DragShadowBuilder dragShadowBuilder = new View.DragShadowBuilder(v);
+           v.startDrag(clipData, dragShadowBuilder, v, 0);
+
+           return true;
+       }
+   };
 
 //comment to check commit to git
 
