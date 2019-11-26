@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.content.ClipData;
+import android.content.Context;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 
@@ -9,12 +10,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.DragEvent;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.View.OnLongClickListener;
-import android.view.ViewConfiguration;
+
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import static java.lang.Boolean.TRUE;
+import java.util.Timer;
+import java.util.TimerTask;
+
+import static android.widget.Toast.*;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,11 +27,15 @@ public class MainActivity extends AppCompatActivity {
     TextView txt_a_target, txt_e_target, txt_i_target, txt_o_target;
     ImageView dino_view;
     MediaPlayer player;
+    int global_result = 0;
+    private static Timer timer = new Timer();
+    private Context ctx;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ctx = this;
 
         txt_a = (TextView) findViewById(R.id.txt_a);
         txt_e = (TextView) findViewById(R.id.txt_e);
@@ -51,10 +59,10 @@ public class MainActivity extends AppCompatActivity {
         dino_view.setOnClickListener(clickListener);
 
         //listener to target have the dropping analyzed
-        txt_a_target.setOnDragListener(dragListener);
-        txt_e_target.setOnDragListener(dragListener);
-        txt_i_target.setOnDragListener(dragListener);
-        txt_o_target.setOnDragListener(dragListener);
+        txt_a_target.setOnDragListener(dragListener_a);
+        txt_e_target.setOnDragListener(dragListener_e);
+        txt_i_target.setOnDragListener(dragListener_i);
+        txt_o_target.setOnDragListener(dragListener_o);
 
         play_velociraptor(null);
 
@@ -83,55 +91,6 @@ public class MainActivity extends AppCompatActivity {
        }
    };
 
-//comment to check commit to git
-
-    View.OnDragListener dragListener = new View.OnDragListener(){
-
-        @Override
-        public boolean onDrag(View v, DragEvent event) {
-
-            int dragEvent = event.getAction();
-
-            switch(dragEvent){
-                case DragEvent.ACTION_DRAG_ENTERED:
-//                case    DragEvent.ACTION_DRAG_STARTED:
-                    final View view = (View) event.getLocalState();
-                    if(view.getId() == R.id.txt_a){
-                        txt_a_target.setText("a");
-                        txt_a.setText("");
-                        //play_a(view);
-                        play_ra(view);
-                        //play_velociraptor(view);
-                    }
-                    if(view.getId() == R.id.txt_e){
-                        txt_e_target.setText("e");
-                        txt_e.setText("");
-                        //play_e(view);
-                        play_ve(view);
-
-                    }
-
-                    if(view.getId() == R.id.txt_i){
-                        txt_i_target.setText("i");
-                        txt_i.setText("");
-                        //play_i(view);
-                        play_ci(view);
-                        //play_velociraptor(view);
-                    }
-                    if(view.getId() == R.id.txt_o){
-                        txt_o_target.setText("o");
-                        txt_o.setText("");
-                        //play_o(view);
-                        play_lo(view);
-                        play_velociraptor(view);
-                    }
-                    break;
-
-            }
-
-            return true;
-        }
-    };
 
     public void play_a(View view){
         if(player == null){
@@ -177,6 +136,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
     public void play_o(View view){
         if(player == null){
             player = MediaPlayer.create(this, R.raw.o);
@@ -191,7 +151,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-
     public void play_velociraptor(View view){
         if(player == null){
             player = MediaPlayer.create(this, R.raw.velociraptor);
@@ -206,6 +165,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
     public void play_ve(View view){
         if(player == null){
             player = MediaPlayer.create(this, R.raw.ve);
@@ -220,7 +180,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-
     public void play_lo(View view){
         if(player == null){
             player = MediaPlayer.create(this, R.raw.lo);
@@ -266,4 +225,126 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+    View.OnDragListener dragListener_a = new View.OnDragListener() {
+
+        @Override
+        public boolean onDrag(View v, DragEvent event) {
+
+            int dragEvent = event.getAction();
+
+            switch (dragEvent) {
+                case DragEvent.ACTION_DRAG_ENTERED:
+//                case    DragEvent.ACTION_DRAG_STARTED:
+                    final View view = (View) event.getLocalState();
+                    if (view.getId() == R.id.txt_a) {
+                        txt_a_target.setText("a");
+                        txt_a.setText("");
+                        txt_a.setVisibility(View.INVISIBLE);
+                        play_ra(view);
+                        global_result++;
+                        timer.schedule(new checkResult(),3000);
+
+                    }
+
+            }
+            return true;
+        }
+
+    };
+
+    View.OnDragListener dragListener_e = new View.OnDragListener() {
+
+        @Override
+        public boolean onDrag(View v, DragEvent event) {
+
+            int dragEvent = event.getAction();
+
+            switch (dragEvent) {
+                case DragEvent.ACTION_DRAG_ENTERED:
+//                case    DragEvent.ACTION_DRAG_STARTED:
+                    final View view = (View) event.getLocalState();
+                    if (view.getId() == R.id.txt_e) {
+                        txt_e_target.setText("e");
+                        txt_e.setVisibility(View.INVISIBLE);
+                        txt_e.setText("");
+                        play_ve(view);
+                        global_result++;
+                        timer.schedule(new checkResult(),3000);
+
+                    }
+
+            }
+            return true;
+        }
+
+    };
+
+    View.OnDragListener dragListener_i = new View.OnDragListener() {
+
+        @Override
+        public boolean onDrag(View v, DragEvent event) {
+
+            int dragEvent = event.getAction();
+
+            switch (dragEvent) {
+                case DragEvent.ACTION_DRAG_ENTERED:
+//                case    DragEvent.ACTION_DRAG_STARTED:
+                    final View view = (View) event.getLocalState();
+                    if (view.getId() == R.id.txt_i) {
+                        txt_i_target.setText("i");
+                        txt_i.setVisibility(View.INVISIBLE);
+                        txt_i.setText("");
+                        play_ci(view);
+                        global_result++;
+                        timer.schedule(new checkResult(),3000);
+                    }
+
+            }
+            return true;
+        }
+
+    };
+
+    View.OnDragListener dragListener_o = new View.OnDragListener() {
+
+        @Override
+        public boolean onDrag(View v, DragEvent event) {
+
+            int dragEvent = event.getAction();
+
+            switch (dragEvent) {
+                case DragEvent.ACTION_DRAG_ENTERED:
+//                case    DragEvent.ACTION_DRAG_STARTED:
+                    final View view = (View) event.getLocalState();
+                    if (view.getId() == R.id.txt_o) {
+                        txt_o_target.setText("o");
+                        txt_o.setVisibility(View.INVISIBLE);
+                        txt_o.setText("");
+                        play_lo(view);
+                        global_result++;
+                        timer.schedule(new checkResult(),3000);
+                    }
+
+            }
+            return true;
+        }
+
+    };
+
+    private class checkResult extends TimerTask
+    {
+        public void run()
+        {
+
+            if( global_result == 4){
+
+                play_velociraptor(null);
+            }
+
+        }
+    }
+
 }
+
+
