@@ -35,7 +35,7 @@ public class triceratops_act extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.act_triceratops);
+        setContentView(R.layout.activity_triceratops);
         ctx = this;
 
         txt_a = (TextView) findViewById(R.id.txt_a);
@@ -53,7 +53,7 @@ public class triceratops_act extends AppCompatActivity {
 
         //listener to play all dino name
         dino_view = findViewById(R.id.dino_view);
-        dino_view.setBackgroundResource(R.drawable.tourossauro);
+       // dino_view.setBackgroundResource(R.drawable.tourossauro);
         dino_view.setOnClickListener(clickListener);
 
         //listener to target have the dropping analyzed
