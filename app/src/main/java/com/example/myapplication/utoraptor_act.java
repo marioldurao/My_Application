@@ -5,27 +5,23 @@ import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.SystemClock;
 import android.view.DragEvent;
 import android.view.MotionEvent;
 import android.view.View;
-
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
 
-
-public class triceratops_act extends AppCompatActivity {
+public class utoraptor_act extends AppCompatActivity {
 
 
     TextView txt_a, txt_e, txt_i,txt_o;
-    TextView txt_a_target, txt_e_target, txt_o_target;
+    TextView txt_a_target, txt_e_target, txt_i_target, txt_o_target;
     ImageView dino_view;
     MediaPlayer player;
     int global_result = 0;
@@ -35,7 +31,7 @@ public class triceratops_act extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_triceratops);
+        setContentView(R.layout.activity_utoraptor);
         ctx = this;
 
         txt_a = (TextView) findViewById(R.id.txt_a);
@@ -53,7 +49,7 @@ public class triceratops_act extends AppCompatActivity {
 
         //listener to play all dino name
         dino_view = findViewById(R.id.dino_view);
-       // dino_view.setBackgroundResource(R.drawable.tourossauro);
+        dino_view.setBackgroundResource(R.drawable.utoraptor);
         dino_view.setOnClickListener(clickListener);
 
         //listener to target have the dropping analyzed
@@ -61,7 +57,7 @@ public class triceratops_act extends AppCompatActivity {
         txt_e_target.setOnDragListener(dragListener_e);
         txt_o_target.setOnDragListener(dragListener_o);
 
-     //   play_medoraptor(null);
+        play_medoraptor(null);
 
     }
 
@@ -283,9 +279,9 @@ public class triceratops_act extends AppCompatActivity {
 
             if (global_result == 3) {
                 global_result = 0;
-                play_medoraptor(null);
-                SystemClock.sleep(1000);
-                startActivity(new Intent(triceratops_act.this, MainActivity.class));
+         //       play_medoraptor(null);
+         //       SystemClock.sleep(1000);
+                startActivity(new Intent(utoraptor_act.this, medoraptor_act.class));
 
             }
 

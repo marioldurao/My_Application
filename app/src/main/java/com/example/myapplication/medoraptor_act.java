@@ -8,7 +8,6 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.SystemClock;
 import android.view.DragEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -30,13 +29,11 @@ public class medoraptor_act extends AppCompatActivity {
     MediaPlayer player;
     int global_result = 0;
     private static Timer timer = new Timer();
-    private Context ctx;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_medoraptor);
-        ctx = this;
 
         txt_a = (TextView) findViewById(R.id.txt_a);
         txt_e = (TextView) findViewById(R.id.txt_e);
@@ -283,8 +280,8 @@ public class medoraptor_act extends AppCompatActivity {
 
             if (global_result == 3) {
                 global_result = 0;
-                play_medoraptor(null);
-                SystemClock.sleep(1000);
+         //       play_medoraptor(null);
+         //       SystemClock.sleep(1000);
                 startActivity(new Intent(medoraptor_act.this, MainActivity.class));
 
             }

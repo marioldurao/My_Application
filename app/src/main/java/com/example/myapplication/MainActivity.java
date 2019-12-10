@@ -240,7 +240,7 @@ public class MainActivity extends AppCompatActivity {
                         txt_a_target.setText("a");
                         txt_a.setText("");
                         txt_a.setVisibility(View.INVISIBLE);
-                        play_ra(view);
+                //        play_ra(view);
                         global_result++;
                         timer.schedule(new checkResult(),3000);
 
@@ -267,7 +267,7 @@ public class MainActivity extends AppCompatActivity {
                         txt_e_target.setText("e");
                         txt_e.setVisibility(View.INVISIBLE);
                         txt_e.setText("");
-                        play_ve(view);
+                //        play_ve(view);
                         global_result++;
                         timer.schedule(new checkResult(),3000);
 
@@ -294,7 +294,7 @@ public class MainActivity extends AppCompatActivity {
                         txt_i_target.setText("i");
                         txt_i.setVisibility(View.INVISIBLE);
                         txt_i.setText("");
-                        play_ci(view);
+                //        play_ci(view);
                         global_result++;
                         timer.schedule(new checkResult(),3000);
 
@@ -322,7 +322,7 @@ public class MainActivity extends AppCompatActivity {
                         txt_o_target.setText("o");
                         txt_o.setVisibility(View.INVISIBLE);
                         txt_o.setText("");
-                        play_lo(view);
+                      //  play_lo(view);
                         global_result++;
                         timer.schedule(new checkResult(),3000);
                     }
@@ -340,9 +340,9 @@ public class MainActivity extends AppCompatActivity {
 
             if( global_result == 4){
                 global_result = 0;
-                play_velociraptor(null);
-                SystemClock.sleep(1000);
-                startActivity(new Intent(MainActivity.this, medoraptor_act.class));
+            //    play_velociraptor(null);
+           //     SystemClock.sleep(1000);
+                startActivity(new Intent(MainActivity.this, utoraptor_act.class));
             }
 
         }

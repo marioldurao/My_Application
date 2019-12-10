@@ -30,7 +30,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".triceratops_act"
+            android:name=".utoraptor_act"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
