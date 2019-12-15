@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical" >
@@ -11,8 +11,8 @@
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
-        android:contentDescription="image dino"
-        tools:srcCompat="@drawable/utoraptor" />
+        android:contentDescription="image dino"/>
+
 
 
     <LinearLayout
@@ -23,25 +23,16 @@
 
 
         <TextView
-            android:id="@+id/txt_u_target"
+            android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_weight="1"
-            android:text="_"
+            android:text="F"
             android:textSize="30sp" />
 
-
         <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textSize="30sp"
-            android:text="t" />
-
-        <TextView
-            android:id="@+id/txt_o_target"
+            android:id="@+id/txt_u_target"
             android:layout_width="18dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -49,6 +40,48 @@
             android:textSize="30sp"
             android:visibility="visible" />
 
+        <TextView
+            android:id="@+id/textViewn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="30sp"
+            android:text="n" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="30sp"
+            android:text="q" />
+
+        <TextView
+            android:id="@+id/txt_ui"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="u"
+            android:textSize="30sp"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/txt_i_target"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="_"
+            android:textSize="30sp"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/txt_o_target"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="_"
+            android:textSize="30sp"
+            android:visibility="visible" />
 
         <TextView
             android:id="@+id/textView10"
@@ -56,7 +89,15 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textSize="30sp"
-            android:text="r" />
+            android:text="s" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="30sp"
+            android:text="s" />
 
         <TextView
             android:id="@+id/txt_a__target"
@@ -67,15 +108,15 @@
             android:textSize="30sp"
             android:visibility="visible" />
 
-
         <TextView
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="p"
+            android:text="u"
             android:textSize="30sp"
             />
+
 
         <TextView
             android:id="@+id/textView9"
@@ -83,25 +124,15 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textSize="30sp"
-            android:text="t" />
+            android:text="r" />
 
         <TextView
-            android:id="@+id/txt_ofixed"
+            android:id="@+id/txt_o2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textSize="30sp"
             android:text="o" />
-
-        <TextView
-            android:id="@+id/r"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="r"
-            android:textSize="30sp"
-            android:visibility="visible" />
-
 
 
     </LinearLayout>
@@ -128,6 +159,17 @@
 
 
         <TextView
+            android:id="@+id/txt_i"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="30sp"
+            android:layout_marginRight="10dp"
+            android:background="#B895F5"
+            android:gravity="center"
+            android:text="i" />
+
+        <TextView
             android:id="@+id/txt_o"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -137,8 +179,6 @@
             android:background="#B895F5"
             android:gravity="center"
             android:text="o" />
-
-
 
         <TextView
             android:id="@+id/txt_a"

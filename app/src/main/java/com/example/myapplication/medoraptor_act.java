@@ -8,6 +8,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.SystemClock;
 import android.view.DragEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -280,8 +281,8 @@ public class medoraptor_act extends AppCompatActivity {
 
             if (global_result == 3) {
                 global_result = 0;
-         //       play_medoraptor(null);
-         //       SystemClock.sleep(1000);
+                play_medoraptor(null);
+                SystemClock.sleep(1000);
                 startActivity(new Intent(medoraptor_act.this, MainActivity.class));
 
             }
